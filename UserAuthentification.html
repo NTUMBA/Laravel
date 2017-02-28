@@ -71,23 +71,27 @@
           <section>
           <h1 class="eureka">USERS AUTHENTIFIÉS</h1>
           <h2>Persistance de l'authentification</h2>
-          <p>Il est indispensable de retrouver les renseignements (informations) sur les utilisateurs</p>
-          <p>Laravel le réalise avec Eloquent grâce au Modèle App\User inclu d'emblée dans le dossier app</p>
-
-          <p>Lors de l’installation  de Laravel, 2 migrations sont déjà présentes:</p>
-          <ol>
-            <li>Une prévue pour la génération de la tables des utilisateurs: users</li>
-            <li>Une autre pour le password reset</li>
-          </ol>
-          <p>Sur le terminal taper: php artisan migrate</p>
-          <p>
-            ce qui aura pour effet de générer 3 tables dans notre BDD:
-          </p>
-          <ol>
-            <li>migrations= intendance (enrégistrement des migrations effectuées)</li>
-            <li>password_reset=sert à la réinitialisation des mots de passe</li>
-            <li>users</li>
-          </ol>
+            <p>Il est indispensable de retrouver les renseignements (informations) sur les utilisateurs</p>
+            <p>Un visiteur identifié pourra bénéficier de plus de privilèges supplémentaires en l'occurrence avoir accès à plus de pages, pouvoir modifier et/ou rédiger des articles ou des commentaires, supprimer etc.</p>
+            <p>Laravel le réalise avec Eloquent grâce au Modèle App\User inclu d'emblée dans le dossier app</p>
+          <h2>Les migrations</h2>
+            <p>Lors de l’installation  de Laravel, 2 migrations sont déjà présentes:</p>
+            <ol>
+              <li>Une prévue pour la génération de la tables des utilisateurs: users</li>
+              <li>Une autre pour le password reset</li>
+            </ol>
+            <p>Sur le terminal taper: php artisan migrate</p>
+            <p>
+              ce qui aura pour effet de générer 3 tables dans notre BDD:
+            </p>
+            <ol>
+              <li>migrations= intendance (enrégistrement des migrations effectuées)</li>
+              <li>password_reset=sert à la réinitialisation des mots de passe</li>
+              <li>users</li>
+            </ol>
+            <p>
+              Il est toujours possible de revenir sur la dernière migration en tapant: <strong>php artisan migrate:rollback</strong>
+            </p>
           <h2>LES MIDDLEWARES</h2>
           <p>Ils ont pour rôle d'accomplir des traitements à l’arrivée (ou au départ) des requêtes HTTP</p>
           <ol>
@@ -110,7 +114,7 @@
               <p>De la même manière que auth, le middleware guest peut s’utiliser sur:</p>
               <ol>
                 <li>une route</li>
-                <li>un groupe de rout</li>
+                <li>un groupe de routes</li>
                 <li>dans le constructeur d’un contrôleur</li>
               </ol>
           </ol>
@@ -152,13 +156,16 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script>
       window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
   </script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/jQuery3.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
       (function(b, o, i, l, e, r) {
@@ -176,8 +183,6 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
   </script>
-</div>
-<!--  wrap ends here========================================================-->
 </body>
 
 </html>

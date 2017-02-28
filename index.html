@@ -70,88 +70,111 @@
     <div class="wrapper">
 
       <section>
-
         <h1 class="eureka">CREATION D'UNE APPLICATION AVEC LARAVEL sous debian</h1>
-          <h2>INSTALLATION AVEC COMPOSER</h2>
-          <ul>
-            <li>Sur le terminal, à la racine du dossier où pointe le serveur, par exemple : <strong>/var/wwww/html/</strong>,
-            on va créer un dossier qui contiendra notre application: <strong>mkdir NomDuDossier</strong></li>
-            <li>on s'y rend en tapant: <strong>cd NomDuDossier</strong></li>
-            <li>On crée notre application en tapant: <strong>composer create-project --prefer-dist laravel/laravel=5.3* NomDeApplication</strong></li>
-            <li>s'y rendre avec <strong>cd NomDeApplication</strong></li>
-            <li>Générer la clé de notre applicationen tapant sur le terminal: <strong>php artisan key:generate</strong></li>
-            <li>On tape: composer update</li>
-            <li>Ensuite: php artisan serve (visualisation de la page d'acceuil de laravel= tout va bien avec localhost:8000 sur la barre de nav)</li>
-          </ul>
+          <div class="installation">
 
-          <h2>AJOUT DU COMPOSANT HTML</h2>
-          <h3>On se rend dans le fichier <strong>composer.json</strong></h3>
-          <ol>
-            <li>sous "laravel/framework": "5.3.*", ajouter <strong>après la virgule</strong>: <strong>"laravelcollective/html": "5.3.*"</strong></li>
-            <li>sur le terminal, taper: <strong>composer update</strong></li>
-          </ol>
-          <h3>Dans le fichier app.php situé dans le dossier config:</h3>
-          <ol>
-            <li>Ajouter dans la section des <strong>providers</strong>:</li>
-            <p> 'providers'=>[....
-              <strong>collective\Html\HtmlServiceProvider:class,</strong>
-              ...]</p>
-            <li>Dans la section des alias: aliases:
-              <strong>'Form'=>Collective\Html\FormFacade::class,</strong></li>
-            <li><strong>'Html'=>Collective\Html\HtmlFacade::class,</strong></li>
-          </ol>
+            <h2>INSTALLATION AVEC COMPOSER</h2>
+            <ul>
+              <li>Sur le terminal, à la racine du dossier où pointe le serveur, par exemple : <strong>/var/wwww/html/</strong>,
+                on va créer un dossier qui contiendra notre application: <strong>mkdir NomDuDossier</strong></li>
+                <li>on s'y rend en tapant: <strong>cd NomDuDossier</strong></li>
+                <li>On crée notre application en tapant: <strong>composer create-project --prefer-dist laravel/laravel=5.3* NomDeApplication</strong></li>
+                <li>s'y rendre avec <strong>cd NomDeApplication</strong></li>
+                <li>Générer la clé de notre applicationen tapant sur le terminal: <strong>php artisan key:generate</strong></li>
+                <li>On tape: composer update</li>
+                <li>Ensuite: php artisan serve (visualisation de la page d'acceuil de laravel= tout va bien avec localhost:8000 sur la barre de nav)</li>
+              </ul>
+          </div>
+          <div class="row line">
+          <div class="col-xs-12 col-md-6">
+            <h2>AJOUT DU COMPOSANT HTML</h2>
+            <h3>On se rend dans le fichier <strong>composer.json</strong></h3>
+            <ol>
+              <li>sous "laravel/framework": "5.3.*", ajouter <strong>après la virgule</strong>: <strong>"laravelcollective/html": "5.3.*"</strong></li>
+                <img src="img/composerJason.png" class="jason" alt="provider" />
+              <li>sur le terminal, taper: <strong>composer update</strong></li>
+            </ol>
+            <h3>Dans le fichier app.php situé dans le dossier config:</h3>
+            <ol>
+              <li>Ajouter dans la section des <strong>providers</strong>:</li>
+              <p> 'providers'=>[....
+                <strong>collective\Html\HtmlServiceProvider:class,</strong>
+                ...]</p>
+                <li>Dans la section des alias: aliases:
+                  <strong>'Form'=>Collective\Html\FormFacade::class,</strong></li>
+                  <li><strong>'Html'=>Collective\Html\HtmlFacade::class,</strong></li>
+                  <img src="img/alias.png" class="alias" alt="alias" />
+                </ol>
 
-          <h3>AJOUT DU DEBUGBAR</h3>
-          <p>
-            Objectif: visualisation: d'une barre avec les erreurs eventuelles dans le code, du nombre de requêtes générées (les minimiser grâce à Eloquent)
-          </p>
-
-          <ol>
-            <li>Sur le terminal taper: <strong>composer reqire barryvdh/laravel-debugbar</strong></li>
-            <li>Dans le fichier app.php du dossier config: dans la section des providers sous
-              collective\Html\HtmlServiceProvider:class,
-            Ajouter:
-          <strong>Barryvdh\Debugbar\ServiceProvider::class,</strong></li>
-          <li>sur le terminal, taper: <strong>php artisan vendor:publish --provider="Barryvdh\debugbar\ServiceProvider"</strong></li>
-          </ol>
-
-        <h3>AJOUT DE La langue de Molière, dossier fr (que vous trouverez dans ce repository sur github)</h3>
-          <p>Dans le dossier ressource/lang, on rajoute le dossier <strong>fr</strong></p>
-
-        <h3>Fichier app.php du dossier config</h3>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <h2>AJOUT DU DEBUGBAR</h2>
             <p>
-              'name'=><strong>'NomDeApplication'</strong>
-              'local'=><strong>'fr'</strong>
+              Objectif: visualisation: d'une barre avec les erreurs eventuelles dans le code, du nombre de requêtes générées (les minimiser grâce à Eloquent)
             </p>
+
+            <ol>
+              <li>Sur le terminal taper: <strong>composer reqire barryvdh/laravel-debugbar</strong></li>
+              <li>Dans le fichier app.php du dossier config: dans la section des providers sous
+                collective\Html\HtmlServiceProvider:class,
+                Ajouter:
+                <strong>Barryvdh\Debugbar\ServiceProvider::class,</strong></li>
+                <li>sur le terminal, taper: <strong>php artisan vendor:publish --provider="Barryvdh\debugbar\ServiceProvider"</strong></li>
+              </ol>
+              <img src="img/providers.png" class="helper" alt="helper" />
+          </div>
+        </div>
+        <div class="row line">
+            <div class="col-xs-12 col-md-4">
+              <h2>AJOUT DE La langue de Molière, dossier fr (que vous trouverez dans ce repository sur github)</h2>
+              <p>Dans le dossier ressource/lang, on rajoute le dossier <strong>fr</strong></p>
+
+              <h3>Fichier app.php du dossier config</h3>
+              <p>
+                'name'=><strong>'NomDeApplication'</strong>
+                'local'=><strong>'fr'</strong>
+
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+
+              <h2>CONFIGURATION DU DRIVER POUR LES EMAILS</h2>
+              <p>
+                Objectif: créer un box mail virtuel: Pouvoir, en phase de développement, simuler l'envoi de emails.
+              </p>
+              <p>
+                Suivez les instructions sur <a href="https://mailtrap.io/"><strong>ce lien</strong></a>
+              </p>
+
+              <p>Dans le fichier .env situé à la racine de l'application: remplacer null par <strong>les codes obtenus après configuration de MailTrap</strong> </p>
+              <ol>
+                <li>MAIL-USERNAME=<strong>null</strong> </li>
+                <li>MAIL-PASSWORD=<strong>null</strong> </li>
+                <img src="img/mail.png" class="mail" alt="mail configuration" />
+              </ol>
+            </div>
+            <div class="col-xs-12 col-md-4">
+            <h2>CONFIGURATION DE LA BDD</h2>
+            <p>Dans le fichier <strong>.env</strong>:</p>
+            <ul>
+              <li>DB_DATABASE=<strong>NomDeBDD</strong></li>
+              <li>DB_USERNAME=ex.<strong>root</strong></li>
+              <li>DB_PASSWORD=<strong>mot de passe pour connection à PHPMysql</strong></li>
+
+              <li>sur le terminal, taper: <strong>mysql -u root -p</strong></li>
+              <li>Entrer son <strong>mot de passe</strong></li>
+              <li>taper: create database NomDeBDD;</li>
+              <li>et ensuite <strong>show databases;</strong></li>
+            </ul>
+          </div>
+        </div>
+
         <h3>UNE COMMANDE INCONTOURNABLE:<strong>php artisan serve</strong></h3>
         <p>
           Cette commande vous permettra de visualiser la page, il suffira de taperensuite sur la barre de navigation: <strong>localhost:8000</strong>
         </p>
-        <h3>CONFIGURATION DU DRIVER POUR LES EMAILS</h3>
-        <p>
-          Objectif: créer un box mail virtuel: Pouvoir, en phase de développement, simuler l'envoi de emails.
-        </p>
-        <p>
-          Suivez les instructions sur <a href="https://mailtrap.io/"><strong>ce lien</strong></a>
-        </p>
 
-        <p>Dans le fichier .env situé à la racine de l'application: remplacer null par <strong>les codes obtenus après configuration de MailTrap</strong> </p>
-        <ol>
-          <li>MAIL-USERNAME=<strong>null</strong> </li>
-          <li>MAIL-PASSWORD=<strong>null</strong> </li>
-        </ol>
-
-        <h3>CONFIGURATION DE LA BDD</h3>
-        <p>Dans le fichier <strong>.env</strong>:</p>
-        <ul>
-          <li>DB_DATABASE=<strong>NomDeBDD</strong></li>
-          <li>DB_USERNAME=ex.<strong>root</strong></li>
-          <li>DB_PASSWORD=<strong>mot de passe pour connection à PHPMysql</strong></li>
-          <li>sur le terminal, taper: <strong>mysql -u root -p</strong></li>
-          <li>Entrer son <strong>mot de passe</strong></li>
-          <li>taper: create database NomDeBDD;</li>
-          <li>et ensuite <strong>show databases;</strong></li>
-        </ul>
         <p>Enfin se rendre <a href="UserAuthentification.html"> à la page d'authentification du visiteur</a></p>
       </section>
     </div>

@@ -101,9 +101,9 @@ textarea {
 body{
   font-size: 1.2em;
   height: 100vh;
-
-  text-align: center;
-    color: #aab;
+  background-color: #fff8dc;
+  text-align: left;
+  color: #aab;
 }
 header{
   height: 171px;
@@ -120,6 +120,21 @@ header,footer,.decofont{
 a{
   color: #f2B90F;
 }
+h1,h2,h3{
+  text-align:center;
+}
+h1{
+  border: 3px solid black;
+}
+h2{
+  border: 2px solid blue;
+  /*border-radius: 5%;*/
+}
+h3{
+  border: 1px solid brown;
+
+}
+
 
 .wrapper{
   margin: 2% auto;
@@ -165,12 +180,22 @@ ul li{
   }
 }
 
+img{
+  max-width: 420px;
+}
+.line{
+  border: 2px solid blue;
+}
+/*.boite{
+  border: 1px solid orange;
+}*/
 section{
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /*border: 3px solid black;*/
   /*background-image: url('../img/laravelSchemeDesigner.png');
   background-repeat: no-repeat;
   background-size: cover;*/
-color:black;
+  color:black;
   max-height: 70%;
   width: 90%;
 }
@@ -181,13 +206,20 @@ color:black;
 
    @media (min-width: 375px) {
       body{
-        font-size: 1.2em;
+        font-size: 1em;
 
       }
       section{
+
         max-height: 80%;
-        max-width: 85%;
+        max-width: 95%;
       }
+      .row{
+        width: 100%;
+        margin:1%;
+        padding: 2%;
+      }
+
       .wrap{
         min-height:calc(100vh -91px);
       }
@@ -208,6 +240,9 @@ color:black;
 
 /* Small devices (tablets, 769px and up) */
    @media (min-width: 769px) {
+     body{
+       font-size: 1.5;
+     }
      h1{
        font-size: 1.2em;
           }

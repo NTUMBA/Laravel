@@ -70,78 +70,93 @@
     <div class="wrapper">
           <section>
           <h1 class="eureka">USERS AUTHENTIFIÉS</h1>
-          <h2>Persistance de l'authentification</h2>
-            <p>Il est indispensable de retrouver les renseignements (informations) sur les utilisateurs</p>
-            <p>Un visiteur identifié pourra bénéficier de plus de privilèges supplémentaires en l'occurrence avoir accès à plus de pages, pouvoir modifier et/ou rédiger des articles ou des commentaires, supprimer etc.</p>
-            <p>Laravel le réalise avec Eloquent grâce au Modèle App\User inclu d'emblée dans le dossier app</p>
-          <h2>Les migrations</h2>
-            <p>Lors de l’installation  de Laravel, 2 migrations sont déjà présentes:</p>
-            <ol>
-              <li>Une prévue pour la génération de la tables des utilisateurs: users</li>
-              <li>Une autre pour le password reset</li>
-            </ol>
-            <p>Sur le terminal taper: php artisan migrate</p>
-            <p>
-              ce qui aura pour effet de générer 3 tables dans notre BDD:
-            </p>
-            <ol>
-              <li>migrations= intendance (enrégistrement des migrations effectuées)</li>
-              <li>password_reset=sert à la réinitialisation des mots de passe</li>
-              <li>users</li>
-            </ol>
-            <p>
-              Il est toujours possible de revenir sur la dernière migration en tapant: <strong>php artisan migrate:rollback</strong>
-            </p>
-          <h2>LES MIDDLEWARES</h2>
-          <p>Ils ont pour rôle d'accomplir des traitements à l’arrivée (ou au départ) des requêtes HTTP</p>
-          <ol>
-            <li>le middleware de groupe web :s'occupent de toutes les requêtes entrantes</li>
-            <li>auth (déjà présent et déclaré dans app\Http\Kernel.php):
-               permet de n’autoriser l’accès qu’aux utilisateurs authentifiés.
-             On voit que la classe se trouve dans le framework:
-              protected $routeMiddleware = ['auth' => \Illuminate\Auth\Middleware\Authenticate::class,...];
-          donc on ne peut pas le modifier directement
-             si on veut rectifier son fonctionnement</li>
-            <li>guest (déjà présent et déclaré dans app\Http\Kernel.php: son rôle est l’inverse du auth :
-               il permet de n’autoriser l’accès qu’aux utilisateurs non authentifiés.
-              Sa classe se trouve dans l’application (dans HTTP/Middleware/RedirectifAuthentificated.php):
-
-              protected $routeMiddleware = [...'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class, ...]
-            </li>
-            <p> Si l’utilisateur est authentifié on fait une redirection vers la route « /home ».
-              Si la classe était dans le framework on aurait du mal à changer cette url !
-              Alors que là c’est accessible et modifiable.</p>
-              <p>De la même manière que auth, le middleware guest peut s’utiliser sur:</p>
+          <div class="row line">
+            <div class="col-xs-12 col-md-6">
+              <h2>Persistance de l'authentification</h2>
+                <p>Il est indispensable de retrouver les renseignements (informations) sur les utilisateurs</p>
+                <p>Un visiteur identifié pourra bénéficier de plus de privilèges supplémentaires en l'occurrence avoir accès à plus de pages, pouvoir modifier et/ou rédiger des articles ou des commentaires, supprimer etc.</p>
+                <p>Laravel le réalise avec Eloquent grâce au Modèle App\User inclu d'emblée dans le dossier app</p>
+              <h2>Les migrations</h2>
+                <p>Lors de l’installation  de Laravel, 2 migrations sont déjà présentes:</p>
+                <ol>
+                  <li>Une prévue pour la génération de la tables des utilisateurs: users</li>
+                  <li>Une autre pour le password reset</li>
+                </ol>
+                <p>Sur le terminal taper: php artisan migrate</p>
+                <p>Ce qui aura pour effet de générer 3 tables dans notre BDD:</p>
+                <ol>
+                  <li>migrations= intendance (enrégistrement des migrations effectuées)</li>
+                  <li>password_reset=sert à la réinitialisation des mots de passe</li>
+                  <li>users</li>
+                </ol>
+                <p>
+                  Il est toujours possible de revenir sur la dernière migration en tapant: <strong>php artisan migrate:rollback</strong>
+                </p>
+              </div>
+            <div class="col-xs-12 col-md-6">
+              <h2>LES MIDDLEWARES</h2>
+              <p>Ils ont pour rôle d'accomplir des traitements à l’arrivée (ou au départ) des requêtes HTTP</p>
               <ol>
-                <li>une route</li>
-                <li>un groupe de routes</li>
-                <li>dans le constructeur d’un contrôleur</li>
-              </ol>
-          </ol>
-          <h2>CREATION DES ROUTES D'AUTHENTIFICATION ET DE FICHIERS ASSOCIÉS</h2>
+                <li>le middleware de groupe web :s'occupent de toutes les requêtes entrantes</li>
+                <li>auth (déjà présent et déclaré dans app\Http\Kernel.php):
+                   permet de n’autoriser l’accès qu’aux utilisateurs authentifiés.
+                 On voit que la classe se trouve dans le framework:
+                  protected $routeMiddleware = ['auth' => \Illuminate\Auth\Middleware\Authenticate::class,...];
+              donc on ne peut pas le modifier directement
+                 si on veut rectifier son fonctionnement</li>
+                <li>guest (déjà présent et déclaré dans app\Http\Kernel.php: son rôle est l’inverse du auth :
+                   il permet de n’autoriser l’accès qu’aux utilisateurs non authentifiés.
+                  Sa classe se trouve dans l’application (dans HTTP/Middleware/RedirectifAuthentificated.php):
 
-          <p>Grâce à laravel, une seule commande génère tout cela:</p>
-          <p>php artisan make:auth</p>
-          <p>
-            Résultat:
-          </p>
-          <ol>
-            <li>Dans Routes/web.php:
-              Auth::routes();
-              Route::get('/home', 'HomeController@index');</li>
-              <li>Dans HTTP/Controllers:
-              HomeControlle.php</li>
-              <li>Dans Views: 6 pages</li>
-                 <ul>
-                   <li>email.blade.php</li>
-                   <li>reset.blade.php</li>
-                   <li>login.blade.php</li>
-                   <li>register.blade.php</li>
-                   <li>app.blade.php</li>
-                   <li>home.blade.php</li>
-                 </ul>
-          </ol>
-          </section>
+                  protected $routeMiddleware = [...'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class, ...]
+                </li>
+                <p> Si l’utilisateur est authentifié on fait une redirection vers la route « /home ».
+                  Si la classe était dans le framework on aurait du mal à changer cette url !
+                  Alors que là c’est accessible et modifiable.</p>
+                  <p>De la même manière que auth, le middleware guest peut s’utiliser sur:</p>
+                  <ol>
+                    <li>une route</li>
+                    <li>un groupe de routes</li>
+                    <li>dans le constructeur d’un contrôleur</li>
+                  </ol>
+              </ol>
+            </div>
+          </div>
+          <!-- <div> -->
+          <h2>CREATION DES ROUTES D'AUTHENTIFICATION ET DE FICHIERS ASSOCIÉS</h2>
+            <div class="row">
+
+             <div class="col-xs-6">
+              <p>Grâce à laravel, une seule commande génère tout cela:</p>
+              <p>php artisan make:auth</p>
+              <img src="img/authentification.png" class="auth hidden-md-down" alt="authentification" />
+
+            </div>
+            <div class="col-xs-6">
+              <p>
+                Résultat:
+              </p>
+              <ol>
+                <li>Dans Routes/web.php:
+                  Auth::routes();
+                  Route::get('/home', 'HomeController@index');</li>
+                  <li>Dans HTTP/Controllers:
+                    HomeControlle.php</li>
+                    <li>Dans Views: 6 pages</li>
+                    <ul>
+                      <li>email.blade.php</li>
+                      <li>reset.blade.php</li>
+                      <li>login.blade.php</li>
+                      <li>register.blade.php</li>
+                      <li>app.blade.php</li>
+                      <li>home.blade.php</li>
+                    </ul>
+                  </ol>
+                </div>
+              </div>
+            </div>
+    </section>
+  </div>
     </div>
     <!--  wapper ends here===================================================-->
     <!--  footer starts here========================================================-->

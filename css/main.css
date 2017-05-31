@@ -106,9 +106,6 @@ body{
   color: #aab;
 }
 header{
-  position: fixed;
-  background-size: cover;
-  z-index: 100;
   height: 171px;
 }
 header, footer{
